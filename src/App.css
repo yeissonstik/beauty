@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+    background-color: #C4C4C4;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header img {
+    margin: 30px 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.carrito {
+    display: flex;
+    margin: 20px;
+}
+.carrito img {
+    margin: 0 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.item {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.item span {
+    font-weight: 700;
+    margin-left: 20px;
 }
+
+.compra {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    width: 400px;
+    height: 350px;
+    margin-top: -120px;
+    margin-left: 60%;
+    margin-bottom: 20px;
+}
+
+.compra button {
+    background-color: #4F4F4F;
+    color:  white;
+    font-weight: 700;
+    font-size: 17px;
+    width: 70%;
+    border-radius: 5px;
+    margin: auto;
+    padding: 10px;
+}
+
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 30px auto;
+
+}
+.questionsBottom {
+    background-color: #4F4F4F;
+    color:  white;
+    font-weight: 700;
+    font-size: 17px;
+    width: 70%;
+    border-radius: 5px;
+    padding: 10px;
+}
+

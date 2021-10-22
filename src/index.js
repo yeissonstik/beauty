@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Route, Switch } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import Susbcribe from './suscribe'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <BrowserRouter>
+      <Switch>
+        <Route exact path='/' component={App}></Route>
+        <Route exact path='/suscribe' component={Susbcribe}></Route>
+      </Switch>
+      {/* <App /> */}
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
