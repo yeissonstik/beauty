@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import home from './home.js'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Route, Switch } from 'react-router';
@@ -11,8 +12,9 @@ ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>
       <Switch>
-        <Route exact path='/' component={App}></Route>
-        <Route exact path='/suscribe' component={Susbcribe}></Route>
+        <Route exact path='/' component={home}></Route>
+        <Route path='/buy' component={App}></Route>
+        <Route path='/suscribe' component={Susbcribe}></Route>
       </Switch>
       {/* <App /> */}
     </BrowserRouter>
