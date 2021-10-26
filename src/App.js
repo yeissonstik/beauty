@@ -51,7 +51,7 @@ function buy() {
             "description": "Pago básico de prueba 04032020",
             "amount": {
                 "currency": "COP",
-                "total": '20.000'
+                "total": plan
             },
             "allowPartial": false
         }
@@ -86,7 +86,7 @@ function buy() {
         console.log(res.value.dataPay)
         axios.post('https://apidev.tools.antpack.co/thebeautyclub/api/payment/initPayment', res.value.dataPay).then(res => {
           console.log(res.data)
-          // window.open(res.data.processUrl)
+          window.open(res.data.processUrl)
         })
         /* Read more about handling dismissals below */
         if (result.dismiss === Swal.DismissReason.timer) {
@@ -102,16 +102,16 @@ function buy() {
 
 function App() {
   if (sus == 'mensual') {
-    plan = '20.000'
+    plan = '20000'
   }
   if (sus == 'trimestral') {
-    plan = '50.000'
+    plan = '50000'
   }
   if (sus == 'semestral') {
-    plan = '90.000'
+    plan = '90000'
   }
   if (sus == 'anual') {
-    plan = '120.000'
+    plan = '120000'
   }
   return (
     <div className="App">
