@@ -16,56 +16,12 @@ let plan;
 const search = window.location.search
 const sus = new URLSearchParams(search).get("suscription")
 
-
-function buy() {
   
-
-  Swal.fire({
-    title: 'user Login',
-    html: `
-         <input type="text" id="name" class="swal2-input" placeholder="name">
-         <input type="text" id="surName" class="swal2-input" placeholder="Last Name">
-         <input type="email" id="email" class="swal2-input" placeholder="email">
-         <input type="number" id="document" class="swal2-input" placeholder="document">
-         <input type="text" id="documentType" class="swal2-input" placeholder="documentType">
-         <input type="number" id="phone" class="swal2-input" placeholder="phone">
-     `
-    ,
-    cancelButtonText: 'Cancel',
-    confirmButtonText: 'Pay',
-    focusConfirm: false,
-    allowOutsideClick: true,
-    preConfirm: () => {
-
-      const dataPay = {
-        "buyer": {
-            "name": document.getElementById('name').value,
-            "surname": document.getElementById('surName').value,
-            "email": document.getElementById('email').value,
-            "document": document.getElementById('document').value,
-            "documentType": document.getElementById('documentType').value,
-            "mobile": document.getElementById('phone').value
-        },
-        "payment": {
-            "reference": "3211",
-            "description": "Pago básico de prueba 04032020",
-            "amount": {
-                "currency": "COP",
-                "total": plan
-            },
-            "allowPartial": false
-        }
-      }
-      // if (!dataPay.name || !dataPay.surname || !dataPay.email || !dataPay.document || !dataPay.documentType || !dataPay.mobile) {
-      //     Swal.showValidationMessage(`Please enter login and password`)
-      //     }
-          return {dataPay}
-      }
-  }).then(res => {
-    console.log(res)
-    if (res.isConfirmed) {
-      let timerInterval
-      Swal.fire({
+  function buy() {
+    axios.defaults.headers.post['Authorization'] = sessionStorage.getItem('token')
+    axios.defaults.headers.common['Authorization'] = sessionStorage.getItem('token')
+    let timerInterval
+    Swal.fire({
         title: 'redirigiendo a place to pay ',
         html: `redirigiendo a place to pay en <b></b> milliseconds.
         <img src=${paytoplace} />
@@ -82,21 +38,12 @@ function buy() {
         willClose: () => {
           clearInterval(timerInterval)
         }
-      }).then((result) => {
-        console.log(res.value.dataPay)
-        axios.post('https://apidev.tools.antpack.co/thebeautyclub/api/payment/initPayment', res.value.dataPay).then(res => {
-          console.log(res.data)
-          window.open(res.data.processUrl)
+      }).then((e) => {
+        axios.post('https://apidev.tools.antpack.co/thebeautyclub/api/payment/', { subscription: sessionStorage.getItem('subscription')}).then((res) => {
+          console.log(res)
+          window.open(res.data.message.processUrl)
         })
-        /* Read more about handling dismissals below */
-        if (result.dismiss === Swal.DismissReason.timer) {
-          console.log('I was closed by the timer')
-        }
       })
-    }
-  })
-
-
 }
 
 

@@ -4,6 +4,7 @@ import box from './box.svg';
 import product from './foundation 1.png';
 import card from './card.svg';
 import image from './image.svg'
+import { Link } from 'react-router-dom';
 function susbcribe(){
     return(
         <div>
@@ -30,7 +31,7 @@ function susbcribe(){
                     <div className="paySeccion">
                         <span>$ 20.000</span>
                         <img src={image}/>
-                        <a href='/buy/?suscription=mensual'>Lo quiero</a>
+                        <Link onClick={() => sessionStorage.setItem('subscription', '0c30489d-d6d1-4800-88ba-e3e01c5b16dc')} to='/buy/?suscription=mensual'>Lo quiero</Link>
                     </div>
                 </div>
                 <div className="susbcribeCard">
@@ -54,7 +55,7 @@ function susbcribe(){
                     <div className="paySeccion">
                         <span>$ 50.000</span>
                         <img src={image}/>
-                        <a href='/buy/?suscription=trimestral'>Lo quiero</a>
+                        <Link onClick={() => sessionStorage.setItem('subscription', '0c30489d-d6d1-4800-88ba-e3e01c5b16dc')} to='/buy/?suscription=trimestral'>Lo quiero</Link>
                     </div>
                 </div>
                 <div className="susbcribeCard">
@@ -78,7 +79,7 @@ function susbcribe(){
                     <div className="paySeccion">
                         <span>$ 90.000</span>
                         <img src={image}/>
-                        <a href='/buy/?suscription=semestral'>Lo quiero</a>
+                        <Link onClick={() => sessionStorage.setItem('subscription', '0c30489d-d6d1-4800-88ba-e3e01c5b16dc')} to='/buy/?suscription=semestral'>Lo quiero</Link>
                     </div>
                 </div>
                 <div className="susbcribeCard">
@@ -102,7 +103,7 @@ function susbcribe(){
                     <div className="paySeccion">
                         <span>$ 120.000</span>
                         <img src={image}/>
-                        <a href='/buy/?suscription=anual'>Lo quiero</a>
+                        <Link onClick={() => sessionStorage.setItem('subscription', '0c30489d-d6d1-4800-88ba-e3e01c5b16dc')} to='/buy/?suscription=anual'>Lo quiero</Link>
                     </div>
                 </div>
             </div>

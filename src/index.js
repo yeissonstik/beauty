@@ -7,12 +7,14 @@ import reportWebVitals from './reportWebVitals';
 import { Route, Switch } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import Susbcribe from './suscribe'
+import login from './login';
 
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>
       <Switch>
-        <Route exact path='/' component={home}></Route>
+        <Route exact path='/' component={login}></Route>
+        <Route exact path='/home' component={home}></Route>
         <Route path='/buy' component={App}></Route>
         <Route path='/suscribe' component={Susbcribe}></Route>
       </Switch>
